@@ -180,34 +180,6 @@ router.get('/work', function (req, res) {
   })
 })
 
-
-// створіть container person, в якому ви виведете всі ці змінні,
-//   які є в ендпоїнті person
-
-//     < створіть layout person, в якому буде лише базова структура
-// HTML документа без header, footer, nav
-
-//   < підключіть layout person до вашого ендпоїнта person
-
-//     < напишіть верстку в container person та виведіть всі дані, які у
-// вас є в ендпоїнті person
-
-//   < які саме теги та як верстати - вам потрібно самостіdно
-// вирішити це, але дотримуdтесь семантики та розділяdте між
-// собою контент за допомого тегу br та hr
-
-//   < створіть окрему вітку під назвою person від вітки master,
-//     в які ви зробите це завдання
-
-//       < після виконання завдання створіть pull request з вітки person
-// у вітку master та приdміть самостіdно pull request
-
-//   < як виконане завдання відправте скріншоти вашого коду,
-//     скріншоти з браузера та скріншот сторінки pull request, якиd
-// ви приdняли
-
-
-
 router.get('/person', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('person', {
@@ -309,6 +281,7 @@ router.get('/person', function (req, res) {
 router.get('/bio', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('bio', {
+    layout: "bio",
     name: 'Albert Einstein',
     birthdate: 'March 14, 1879',
     birthplace:

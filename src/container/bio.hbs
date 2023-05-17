@@ -1,0 +1,107 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <main>
+        <section>
+            {{> title data=name big=true}}
+            <div><b>{{birthdate}}</b> ({{birthplace}}) - <b>{{deathdate}}</b> ({{deathplace}}).</div>
+            <div>{{nationality}} <b>{{occupation}}</b> known for:</div>
+            <ul>
+                {{#each known_for}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+
+            <div><b>Education:</b></div>
+            <ul>
+                {{#each education}}
+                    <li>
+                        <div>{{degree}}, {{field}}</div>
+                        <div><em>{{institution}}</em>, {{year}}</div>
+                    </li>
+                {{/each}}
+            </ul>
+
+            <div><b>Notable publications:</b></div>
+            <ul>
+                {{#each notable_publications}}
+                    <li>
+                        <em>{{title}}</em>, {{year}} ({{publisher}})
+                    </li>
+                {{/each}}
+            </ul>
+
+            <div><b>Awards:</b></div>
+            <ul>
+                {{#each awards}}
+                    <li>
+                        <em>{{title}}</em> - {{description}}, {{year}}
+                    </li>
+                {{/each}}
+            </ul>
+            <hr>
+
+            <div><b>Partners:</b></div>
+            <ul>
+                {{#each partners}}
+                    <li>
+                        <em>{{name}}</em> - {{relationship}}, {{years}}
+                    </li>
+                {{/each}}
+            </ul>
+            
+            <div><b>Scientists who had a significant influence on Einstein:</b></div>
+            <ul>
+                {{#each influences}}
+                    <li>
+                        <em>{{this}}</em>
+                    </li>
+                {{/each}}
+            </ul>
+
+            <div><b>The personality of Albert Einstein had a tangible impact on the work of scientists:</b></div>
+            <ul>
+                {{#each influenced}}
+                    <li>
+                        <em>{{this}}</em>
+                    </li>
+                {{/each}}
+            </ul>
+            <hr>
+
+            <div><b>Quotes:</b></div>
+            <ul>
+                {{#each quotes}}
+                    <li>
+                        <q>{{this}}</q>
+                    </li>
+                {{/each}}
+            </ul>
+
+            <div><b>Major discoveries:</b></div>
+            <ul>
+                {{#each major_discoveries}}
+                    <li>
+                        <em>{{title}}</em> - {{description}}, {{year}}
+                    </li>
+                {{/each}}
+            </ul>
+
+            <div><b>Contributions:</b></div>
+                <ul>
+                    {{#with contributions}}
+                        <em>{{title}}</em> - {{description}}, {{year}} ({{field}})
+                    {{/with}}
+                </ul>
+        </section>
+    </main>
+</div>
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
