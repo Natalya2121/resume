@@ -1,0 +1,217 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+ {{!-- person: {
+      name: 'Emma Johnson',
+      age: 32,
+      gender: 'Female',
+      address: {
+        street: '123 Main St',
+        city: 'New York',
+        state: 'NY',
+        zip: '10001',
+        country: 'USA',
+      },
+      education: [
+        {
+          degree: 'Bachelor of Science',
+          major: 'Computer Science',
+          university:
+            'Massachusetts Institute of Technology',
+          graduationYear: 2012,
+        },
+      ],
+      workExperience: [
+        {
+          company: 'Google',
+          title: 'Software Engineer',
+          startDate: '2012-06-01',
+          endDate: '2016-12-31',
+          responsibilities: [
+            'Developed new features for Google Maps',
+            'Worked on improving search algorithms',
+          ],
+          year_founded: 1990,
+          industry: 'Technology',
+          employees: [
+            {
+              name: 'John Smith',
+              position: 'CEO',
+              department: 'Executive',
+              projects: [
+                {
+                  name: 'Project Alpha',
+                  description:
+                    'Developing new software platform',
+                  status: 'In Progress',
+                  teams: [
+                    {
+                      team_name: 'Awesome Team',
+                      team_leader: {
+                        name: 'John Smith',
+                        title: 'Team Leader',
+                        email: 'john.smith@example.com',
+                      },
+                      team_members: [
+                        {
+                          name: 'Alice Johnson',
+                          title: 'Software Engineer',
+                          email:
+                            'alice.johnson@example.com',
+                          skills: ['Java', 'Python', 'SQL'],
+                          projects: [
+                            {
+                              name: 'Project A',
+                              description:
+                                'Lorem ipsum dolor sit amet',
+                              technologies: [
+                                'Java',
+                                'Spring Framework',
+                              ],
+                              team_members: [
+                                {
+                                  name: 'Bob Lee',
+                                  title:
+                                    'Software Engineer',
+                                },
+                                {
+                                  name: 'Cindy Chen',
+                                  title: 'UI Designer',
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    }, --}}
+
+<div>
+    {{#with person}}
+        <main>
+            <section>
+               
+                    {{> title data=name big=true}}
+                    <div>{{age}} years, {{gender}}</div>
+                    <br>
+
+                    {{#with address}}
+                        <div><address>{{street}}, {{city}} ({{state}})</address></div>
+                        {{!-- <div><address>{{city}} ({{state}})</address></div> --}}
+                        <div><address>{{zip}} {{country}}</address></div>
+                    {{/with}}
+            </section>
+            <hr>
+
+             <section>
+                    {{> title data="Education"}}
+                    <ul>
+                        {{#each education}}
+                            <li>
+                            <div>Degree {{degree}},  major {{major}}</div>
+                            <div><b>{{university}}</b>,  graduated in {{graduationYear}}</div>
+                            </li>
+                        {{/each}}
+                    </ul>
+            </section>
+            <hr>
+
+             <section>
+                    {{> title data="Work Experience"}}
+                    <ul>
+                        {{#each workExperience}}
+                            <li>
+                                <div><b>{{company}}</b> <em>founded in {{year_founded}}</em></div>
+                                <div><b>Industry {{industry}}</b></div>
+                                <br>
+                                <div><strong>Position: {{title}}</strong></div>
+                                <div>{{startDate}} - {{endDate}}</div>
+                                <div><em>Responsibilities:</em></div>
+                                <ul>
+                                    {{#each responsibilities}}
+                                        <li>
+                                            {{this}}
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                                <hr>
+                                <br>
+                                <div><b>Employees:</b></div>
+                                <ul>
+                                    {{#each employees}}
+                                        <li>
+                                            <div><b>{{name}}</b></div>
+                                            <div><b>Position: {{position}}, department: {{department}} </b></div>
+                                            <br>
+                                            <div><em>Projects:</em></div>
+                                            <ul>
+                                                {{#each projects}}
+                                                    <li>
+                                                        <div><b>{{name}}</b> ({{status}})</div>
+                                                        <div>Description: {{description}}</div>
+                                                        <div><em>Teams:</em></div>
+                                                        <ul>
+                                                            {{#each teams}}
+                                                                <li>
+                                                                    <div><b>{{team_name}}</b></div>
+                                                                    <div><b>{{team_leader.title}}</b> {{> link href=team_leader.email text=team_leader.name noline=true}}</div>
+                                                                    <div><em>Team members:</em></div>
+                                                                    <ul>
+                                                                        {{#each team_members}}
+                                                                            <li>
+                                                                                <div><b>{{title}}</b> {{> link href=email text=name noline=true}}</div>
+                                                                                <div><em>Skills:</em></div>
+                                                                                <ul>
+                                                                                    {{#each skills}}<li>{{this}}</li>{{/each}}
+                                                                                </ul>
+                                                                                <div><em>Projects:</em></div>
+                                                                                <ul>
+                                                                                    {{#each projects}}
+                                                                                    <li>
+                                                                                        <b>{{name}}</b> ({{description}})
+                                                                                        <div><em>Technologies:</em></div>
+                                                                                        <ul>
+                                                                                            {{#each technologies}}<li>{{this}}</li>{{/each}}
+                                                                                        </ul>
+                                                                                        <div><em>Team members:</em></div>
+                                                                                        <ul>
+                                                                                            {{#each team_members}}<li><b>{{name}}</b> {{title}}</li>{{/each}}
+                                                                                        </ul>
+                                                                                    </li>{{/each}}
+                                                                                </ul>
+                                                                            </li>
+                                                                        {{/each}}
+                                                                    </ul>
+                                                                </li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+                                                {{/each}}
+                                            </ul>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/each}}
+                    </ul>
+            </section>
+            <hr>
+        </main>
+    {{/with}}
+    
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}

@@ -179,5 +179,132 @@ router.get('/work', function (req, res) {
 
   })
 })
+
+
+// створіть container person, в якому ви виведете всі ці змінні,
+//   які є в ендпоїнті person
+
+//     < створіть layout person, в якому буде лише базова структура
+// HTML документа без header, footer, nav
+
+//   < підключіть layout person до вашого ендпоїнта person
+
+//     < напишіть верстку в container person та виведіть всі дані, які у
+// вас є в ендпоїнті person
+
+//   < які саме теги та як верстати - вам потрібно самостіdно
+// вирішити це, але дотримуdтесь семантики та розділяdте між
+// собою контент за допомого тегу br та hr
+
+//   < створіть окрему вітку під назвою person від вітки master,
+//     в які ви зробите це завдання
+
+//       < після виконання завдання створіть pull request з вітки person
+// у вітку master та приdміть самостіdно pull request
+
+//   < як виконане завдання відправте скріншоти вашого коду,
+//     скріншоти з браузера та скріншот сторінки pull request, якиd
+// ви приdняли
+
+
+
+router.get('/person', function (req, res) {
+  //             ↙ cюди вводимо назву файлу з сontainer
+  res.render('person', {
+    layout: "person",
+    person: {
+      name: 'Emma Johnson',
+      age: 32,
+      gender: 'Female',
+      address: {
+        street: '123 Main St',
+        city: 'New York',
+        state: 'NY',
+        zip: '10001',
+        country: 'USA',
+      },
+      education: [
+        {
+          degree: 'Bachelor of Science',
+          major: 'Computer Science',
+          university:
+            'Massachusetts Institute of Technology',
+          graduationYear: 2012,
+        },
+      ],
+      workExperience: [
+        {
+          company: 'Google',
+          title: 'Software Engineer',
+          startDate: '2012-06-01',
+          endDate: '2016-12-31',
+          responsibilities: [
+            'Developed new features for Google Maps',
+            'Worked on improving search algorithms',
+          ],
+          year_founded: 1990,
+          industry: 'Technology',
+          employees: [
+            {
+              name: 'John Smith',
+              position: 'CEO',
+              department: 'Executive',
+              projects: [
+                {
+                  name: 'Project Alpha',
+                  description:
+                    'Developing new software platform',
+                  status: 'In Progress',
+                  teams: [
+                    {
+                      team_name: 'Awesome Team',
+                      team_leader: {
+                        name: 'John Smith',
+                        title: 'Team Leader',
+                        email: 'john.smith@example.com',
+                      },
+                      team_members: [
+                        {
+                          name: 'Alice Johnson',
+                          title: 'Software Engineer',
+                          email:
+                            'alice.johnson@example.com',
+                          skills: ['Java', 'Python', 'SQL'],
+                          projects: [
+                            {
+                              name: 'Project A',
+                              description:
+                                'Lorem ipsum dolor sit amet',
+                              technologies: [
+                                'Java',
+                                'Spring Framework',
+                              ],
+                              team_members: [
+                                {
+                                  name: 'Bob Lee',
+                                  title:
+                                    'Software Engineer',
+                                },
+                                {
+                                  name: 'Cindy Chen',
+                                  title: 'UI Designer',
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  })
+})
+
 // Підключаємо роутер до бек-енду
 module.exports = router
