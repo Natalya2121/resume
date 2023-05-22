@@ -587,6 +587,14 @@ router.get('/web', function (req, res) {
 })
 
 
+router.get('/bootstrap', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('bootstrap', {
+    layout: "bootstrap"
+
+
 router.get('/js', function (req, res) {
   // res.render генерує нам HTML сторінку
 
@@ -1000,9 +1008,12 @@ router.get('/facebook', function (req, res) {
 
 
 
+
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
+
+
 
 // ================================================================
 
