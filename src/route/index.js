@@ -1093,6 +1093,7 @@ router.get('/task21', function (req, res) {
 })
 
 // ================================================================
+
 router.get('/task22', function (req, res) {
   // res.render генерує нам HTML сторінку
 
