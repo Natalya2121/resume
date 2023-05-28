@@ -1,83 +1,77 @@
-{{!-- 
-Це код container файлу для summary сторінки, 
-в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
---}}
+<main>
+    <section>
+        {{> title data="Web languages" big=true}}
+        <ul>
+            {{#each web.languages}}
+                <li>
+                    <div><h3>{{name}} version {{version}}</h3></div>
+                    <div><em>{{description}}</em></div>
+                    <div class="mb-3"></div>
+                    {{!-- <br> --}}
 
-<div>
-        <main>
-            <section>
-                {{> title data="Web languages" big=true}}
-                <ul>
-                    {{#each web.languages}}
-                        <li>
-                            <div><h3>{{name}} version {{version}}</h3></div>
-                            <div><em>{{description}}</em></div>
-                            <br>
-
-                            {{#if elements}}
-                                <b>Elements:</b>
+                    {{#if elements}}
+                        <b>Elements:</b>
+                        <ul>
+                            {{#each elements}}
+                            <li>
+                                <b>{{name}}</b> - {{description}}
+                                <div><b>Attributes:</b></div>
                                 <ul>
-                                    {{#each elements}}
-                                    <li>
-                                        <b>{{name}}</b> - {{description}}
-                                        <div><b>Attributes:</b></div>
-                                        <ul>
-                                            {{#each attributes}}
-                                                <li><b>{{name}}</b> - {{description}}</li>
-                                            {{/each}}
-                                        </ul>
-                                    </li>
-                                    <br>
+                                    {{#each attributes}}
+                                        <li><b>{{name}}</b> - {{description}}</li>
                                     {{/each}}
                                 </ul>
-                            {{/if}}
+                            </li>
+                            {{!-- <br> --}}
+                            <div class="mb-3"></div>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
 
-                            {{#if properties}}
-                                <b>Properties:</b>
+                    {{#if properties}}
+                        <b>Properties:</b>
+                        <ul>
+                            {{#each properties}}
+                            <li>
+                                <b>{{name}}</b> - {{description}}
+                                <div><b>Values:</b></div>
                                 <ul>
-                                    {{#each properties}}
-                                    <li>
-                                        <b>{{name}}</b> - {{description}}
-                                        <div><b>Values:</b></div>
-                                        <ul>
-                                            {{#each values}}
-                                                <li><b>{{value}}</b> - {{description}}</li>
-                                            {{/each}}
-                                        </ul>
-                                    </li>
-                                    <br>
+                                    {{#each values}}
+                                        <li><b>{{value}}</b> - {{description}}</li>
                                     {{/each}}
                                 </ul>
-                            {{/if}}
+                            </li>
+                            {{!-- <br> --}}
+                            <div class="mb-3"></div>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
 
-                            {{#if functions}}
-                                <b>Functions:</b>
+                    {{#if functions}}
+                        <b>Functions:</b>
+                        <ul>
+                            {{#each functions}}
+                            <li>
+                                <b>{{name}}</b> - {{description}}
+                                <div><b>Parameters:</b></div>
                                 <ul>
-                                    {{#each functions}}
-                                    <li>
-                                        <b>{{name}}</b> - {{description}}
-                                        <div><b>Parameters:</b></div>
-                                        <ul>
-                                            {{#each parameters}}
-                                                <li><b>{{name}} <em>{{type}}</em></b> - {{description}}</li>
-                                            {{/each}}
-                                        </ul>
-                                    </li>
-                                    <br>
+                                    {{#each parameters}}
+                                        <li><b>{{name}} <em>{{type}}</em></b> - {{description}}</li>
                                     {{/each}}
                                 </ul>
-                            {{/if}}
+                            </li>
+                            {{!-- <br> --}}
+                            <div class="mb-3"></div>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
 
-                            <br>
-                            <br>
-                        </li>
-                    {{/each}}
-                </ul>
-            </section>
-        </main>
-</div>
-
-{{!-- 
-    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
-    Адже наш layout/default.hbs має вже структуру HTML
---}}
+                    <div class="mb-3"></div>
+                    <div class="mb-3"></div>
+                    {{!-- <br>
+                    <br> --}}
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+</main>

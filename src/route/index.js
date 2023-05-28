@@ -40,9 +40,36 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: "index",
+    pages: [
+      { href: "/summary", text: "Summary" },
+      { href: "/skills", text: "Skills" },
+      { href: "/education", text: "Education" },
+      { href: "/work", text: "Work" },
+      { href: "/person", text: "Person" },
+      { href: "/bio", text: "Bio" },
+      { href: "/program", text: "Program" },
+      { href: "/web", text: "Web" },
+      { href: "/js", text: "Js" },
+      { href: "/car", text: "Car" },
+      { href: "/mac", text: "Mac" },
+      { href: "/facebook", text: "Facebook" },
+      { href: "/task21", text: "task21" },
+      { href: "/task22", text: "task22" },
+      { href: "/task31", text: "task31" },
+      { href: "/shophome", text: "Shophome" },
+      { href: "/shoporder", text: "Shoporder" },
+      { href: "/shopcart", text: "Shopcart" },
+      { href: "/shopprofile", text: "Shopprofile" },
+      { href: "/shopreview", text: "Shopreview" },
+      { href: "/shopcatalog", text: "Shopcatalog" }
+    ]
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
+
+
 
 // ================================================================
 

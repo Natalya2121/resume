@@ -1,119 +1,107 @@
-{{!-- 
-Це код container файлу для summary сторінки, 
-в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
---}}
+<main>
+    <section>
+        {{> title data=name big=true}}
+        <div><em>{{description}}</em></div>
+        <div><b>Founded by {{history.founder}} in {{history.year}}</b></div>
+        <hr>
 
-<div>
-    <main>
-        <section>
-            {{> title data=name big=true}}
-            <div><em>{{description}}</em></div>
-            <div><b>Founded by {{history.founder}} in {{history.year}}</b></div>
-            <hr>
+        {{> title data="JavaScript Data Types:"}}
+        <ul>
+            {{#each types}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+        <hr>
+        
+        {{> title data="JavaScript Syntax:"}}
+        {{#with syntax}}
+        <b>Variables:</b>
+        <ul>
+            {{#each variables}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+        
+        <b>Functions:</b>
+        <ul>
+            {{#each functions}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
 
-            {{> title data="JavaScript Data Types:"}}
-            <ul>
-                {{#each types}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
-            <hr>
-            
-            {{> title data="JavaScript Syntax:"}}
-            {{#with syntax}}
-            <b>Variables:</b>
-            <ul>
-                {{#each variables}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
-            
-            <b>Functions:</b>
-            <ul>
-                {{#each functions}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
+        <b>Conditionals:</b>
+        <ul>
+            {{#each conditionals}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
 
-            <b>Conditionals:</b>
-            <ul>
-                {{#each conditionals}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
+        <b>Loops:</b>
+        <ul>
+            {{#each loops}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
 
-            <b>Loops:</b>
-            <ul>
-                {{#each loops}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
+        <b>Classes:</b>
+        <ul>
+            {{#each classes}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+        {{/with}}
+        <hr>
 
-            <b>Classes:</b>
-            <ul>
-                {{#each classes}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
-            {{/with}}
-            <hr>
+        {{> title data="JavaScript Features:"}}
+        <ul>
+            {{#each features}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+        <hr>
 
-            {{> title data="JavaScript Features:"}}
-            <ul>
-                {{#each features}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
-            <hr>
+        {{> title data="JavaScript Libraries:"}}
+        <ul>
+            {{#each libraries}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+        <hr>
 
-            {{> title data="JavaScript Libraries:"}}
-            <ul>
-                {{#each libraries}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
-            <hr>
+        {{> title data="JavaScript Tools:"}}
+        <ul>
+            {{#each tools}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+        <hr>
 
-            {{> title data="JavaScript Tools:"}}
-            <ul>
-                {{#each tools}}
-                <li>
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
-            <hr>
+        {{> title data="JavaScript Community:"}}
+        <ul>
+            {{#each community}}
+            <li>
+                    <button type="button" class="btn btn-link">{{type}} {{name}}</button>
+            </li>
+            {{/each}}
+        </ul>
 
-            {{> title data="JavaScript Community:"}}
-            <ul>
-                {{#each community}}
-                <li>
-                        <button type="button" class="btn btn-link">{{type}} {{name}}</button>
-                </li>
-                {{/each}}
-            </ul>
-
-        </section>
-    </main>
-</div>
-
-{{!-- 
-    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
-    Адже наш layout/default.hbs має вже структуру HTML
---}}
+    </section>
+</main>

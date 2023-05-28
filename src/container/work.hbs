@@ -13,35 +13,44 @@
                         <li>
                             <div>{{position}}</div>
 
-                            <br>
+                            {{!-- <br> --}}
+                            <div class="mb-3"></div>
                             <div>
                                 {{duration.from}} - 
                                 {{#if duration.to}} {{duration.to}} {{else}} (ще працюю) {{/if}}
                             </div>
 
-                            <br>
+                            {{!-- <br> --}}
+                            <div class="mb-3"></div>
                             {{#if company.url}}
                                 <div>{{> link text=company.name href=company.url blank=true noline=true}}</div>
                             {{else}}
                                 <div><b>{{company.name}}</b></div>
                             {{/if}}
 
-                            <br>
-                            <br>
+                            <div class="mb-3"></div>
+                            <div class="mb-3"></div>
+
+                            {{!-- <br>
+                            <br> --}}
                             <div><strong>Projects ({{projectAmount}})</strong></div>
-                            <br>
+                            {{!-- <br> --}}
+                            <div class="mb-3"></div>
                             <ul>
                                 {{#each projects}}
                                     <li>
                                         <div>{{> link text=name href=url blank=true noline=true}}</div>
                                         
-                                        <br>
+                                        {{!-- <br> --}}
+                                        <div class="mb-3"></div>
                                         <div><p>{{about}}</p></div>
                                         
-                                        <br>
+                                        {{!-- <br> --}}
+                                        <div class="mb-3"></div>
                                         <div><em>Project stacks ({{stackAmount}})</em></div>
                                         
-                                        <br>
+                                        {{!-- <br> --}}
+                                        <div class="mb-3"></div>
                                         <div>
                                             <ul>
                                                 {{#each stacks}}
@@ -52,10 +61,12 @@
                                             </ul>
                                         </div>
 
-                                        <br>
+                                        {{!-- <br> --}}
+                                        <div class="mb-3"></div>
                                         <div><em>Project awards ({{awardAmount}})</em></div>
                                         
-                                        <br>
+                                        {{!-- <br> --}}
+                                        <div class="mb-3"></div>
                                         <div>
                                             <ul>
                                                 {{#each awards}}
@@ -69,7 +80,8 @@
                                 {{/each}}
                             </ul>
                         </li>
-                        <br>
+                        {{!-- <br> --}}
+                        <div class="mb-3"></div>
                     {{/each}}
                 </ul>
             </section>
