@@ -2886,6 +2886,7 @@ router.get('/shopreview', function (req, res) {
 })
 
 // ================================================================
+
 router.get('/shopcatalog', function (req, res) {
   // res.render генерує нам HTML сторінку
 
