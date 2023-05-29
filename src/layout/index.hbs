@@ -11,7 +11,6 @@
     </title>
     <meta charset='utf-8' />
     <link href='css/index.css' rel='stylesheet' />
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     {{!  ↓  підключаємо іконки bootstrap   --}}
@@ -19,24 +18,30 @@
   </head>
 
   <body>
-   
-    {{> nav}}
+      <header class="p-3">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6"><h4>Наталія Андрієнко</h4></div>
+                    <div class="col-6"><bdo dir="rtl"><h4>Resume project</h4></bdo></div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </header>
 
-    <div class="mb-3 mx-4"><hr></div>
-      {{!-- <br>
-      <hr> --}}
 
     {{!  ↓  ця кострукція показує куди шаблонізатору треба вставляти код з container файлу   --}}
     {{{body}}}
 
-    {{#with footer}}
-        {{> footer social=social firstname=../header.name.firstname lastname=../header.name.lastname address=../header.address}}
-    {{/with}}
+    {{!-- {{> nav}} --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://kit.fontawesome.com/4919bc7450.js" crossorigin="anonymous"></script>
-
   </body>
 
 </html>

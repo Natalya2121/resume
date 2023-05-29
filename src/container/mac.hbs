@@ -1,184 +1,182 @@
-{{!-- 
-Це код container файлу для summary сторінки, 
-в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
---}}
+<main>
+    <section>
+        {{> title data=name big=true}}
+        <div><em>{{description}}</em></div>
+        <div><b>{{category}}</b></div>
+        <div><h2>{{price}} $</h2></div>
+        {{!-- <br> --}}
+        <div class="mb-3"></div>
 
-<div>
-    <main>
-        <section>
-            {{> title data=name big=true}}
-            <div><em>{{description}}</em></div>
-            <div><b>{{category}}</b></div>
-            <div><h2>{{price}} $</h2></div>
+        {{> title data="Processor:"}}
+        {{#with features.processor}}
+        <table>
+            <tr>
+                <th>brand:</th>
+                <td>{{brand}}</td>
+            </tr>
+            <tr>
+                <th>model:</th>
+                <td>{{model}}</td>
+            </tr>
+            <tr>
+                <th>speed:</th>
+                <td>{{speed}}</td>
+            </tr>
+            <tr>
+                <th>cores:</th>
+                <td>{{cores}}</td>
+            </tr>
+            <tr>
+                <th>cache:</th>
+                <td>{{cache}}</td>
+            </tr>
+        </table>
+        {{/with}}
+        <br>
+
+        {{> title data="Memory:"}}
+        {{#with features.memory}}
+        <table class="table-success">
+            <tr>
+                <th>type:</th>
+                <td>{{type}}</td>
+            </tr>
+            <tr>
+                <th>size:</th>
+                <td>{{size}}</td>
+            </tr>
+            <tr>
+                <th>speed:</th>
+                <td>{{speed}}</td>
+            </tr>
+        </table>
+        {{/with}}
+        {{!-- <br> --}}
+        <div class="mb-3"></div>
+
+        {{> title data="Storage:"}}
+        {{#with features.storage}}
+        <table>
+            <tr>
+                <th>type:</th>
+                <td>{{type}}</td>
+            </tr>
+            <tr>
+                <th>size:</th>
+                <td>{{size}}</td>
+            </tr>
+        </table>
+        {{/with}}
+        {{!-- <br> --}}
+        <div class="mb-3"></div>
+
+        {{> title data="Display:"}}
+        {{#with features.display}}
+        <table>
+            <tr>
+                <th>size:</th>
+                <td>{{size}}</td>
+            </tr>
+            <tr>
+                <th>resolution:</th>
+                <td>{{resolution}}</td>
+            </tr>
+            <tr>
+                <th>technology:</th>
+                <td>{{technology}}</td>
+            </tr>
+            <tr>
+                <th>color space:</th>
+                <td>{{color_space}}</td>
+            </tr>
+            <tr>
+                <th>brightness:</th>
+                <td>{{brightness}}</td>
+            </tr>
+            <tr>
+                <th>refresh rate:</th>
+                <td>{{refresh_rate}}</td>
+            </tr>
+        </table>
+        {{/with}}
+        {{!-- <br> --}}
+        <div class="mb-3"></div>
+
+        {{> title data="Ports:"}}
+        {{#each features.ports}}
+            <div><b>type:</b> {{type}}</div>
+            <div><b>count:</b> {{count}}</div>
+
+            {{#if features}}
+            <div>
+                <b>features:</b>
+                {{#each features}}
+                    {{this}}
+                {{/each}}
+            </div>
+            {{/if}}
+            {{!-- <br> --}}
+            <div class="mb-3"></div>
+        {{/each}}
+
+        {{> title data="Battery:"}}
+        {{#with features.battery}}
+        <table>
+            <tr>
+                <th>type:</th>
+                <td>{{type}}</td>
+            </tr>
+            <tr>
+                <th>capacity:</th>
+                <td>{{capacity}}</td>
+            </tr>
+            <tr>
+                <th>life:</th>
+                <td>{{life}}</td>
+            </tr>
+        </table>
+        {{/with}}
+        {{!-- <br>                 --}}
+        <div class="mb-3"></div>
+
+        {{> title data="Weight:"}}
+        <div><b>Weight:</b> {{features.weight}}</div>
+        {{!-- <br>                 --}}
+        <div class="mb-3"></div>
+
+        {{> title data="Dimensions:"}}
+        {{#with features.dimensions}}
+        <table>
+            <tr>
+                <th>height:</th>
+                <td>{{height}}</td>
+            </tr>
+            <tr>
+                <th>width:</th>
+                <td>{{width}}</td>
+            </tr>
+            <tr>
+                <th>depth:</th>
+                <td>{{depth}}</td>
+            </tr>
+        </table>
+        {{/with}}
+        {{!-- <br>                 --}}
+        <div class="mb-3"></div>
+
+        {{> title data="Operating system:"}}
+        <div><b>Operating system:</b> {{features.operating_system}}</div>
+        {{!-- <br>                 --}}
+        <div class="mb-3"></div>
+
+        {{> title data="Accessories:"}}
+        {{#each features.accessories}}
+            <div><b>name:</b> {{name}}</div>
+            <div><b>price:</b> {{price}}</div>
             <br>
+        {{/each}}
+        {{!-- <br>                 --}}
+        <div class="mb-3"></div>
 
-            {{> title data="Processor:"}}
-            {{#with features.processor}}
-            <table>
-                <tr>
-                    <th>brand:</th>
-                    <td>{{brand}}</td>
-                </tr>
-                <tr>
-                    <th>model:</th>
-                    <td>{{model}}</td>
-                </tr>
-                <tr>
-                    <th>speed:</th>
-                    <td>{{speed}}</td>
-                </tr>
-                <tr>
-                    <th>cores:</th>
-                    <td>{{cores}}</td>
-                </tr>
-                <tr>
-                    <th>cache:</th>
-                    <td>{{cache}}</td>
-                </tr>
-            </table>
-            {{/with}}
-            <br>
-
-            {{> title data="Memory:"}}
-            {{#with features.memory}}
-            <table class="table-success">
-                <tr>
-                    <th>type:</th>
-                    <td>{{type}}</td>
-                </tr>
-                <tr>
-                    <th>size:</th>
-                    <td>{{size}}</td>
-                </tr>
-                <tr>
-                    <th>speed:</th>
-                    <td>{{speed}}</td>
-                </tr>
-            </table>
-            {{/with}}
-            <br>
-
-            {{> title data="Storage:"}}
-            {{#with features.storage}}
-            <table>
-                <tr>
-                    <th>type:</th>
-                    <td>{{type}}</td>
-                </tr>
-                <tr>
-                    <th>size:</th>
-                    <td>{{size}}</td>
-                </tr>
-            </table>
-            {{/with}}
-            <br>
-
-            {{> title data="Display:"}}
-            {{#with features.display}}
-            <table>
-                <tr>
-                    <th>size:</th>
-                    <td>{{size}}</td>
-                </tr>
-                <tr>
-                    <th>resolution:</th>
-                    <td>{{resolution}}</td>
-                </tr>
-                <tr>
-                    <th>technology:</th>
-                    <td>{{technology}}</td>
-                </tr>
-                <tr>
-                    <th>color space:</th>
-                    <td>{{color_space}}</td>
-                </tr>
-                <tr>
-                    <th>brightness:</th>
-                    <td>{{brightness}}</td>
-                </tr>
-                <tr>
-                    <th>refresh rate:</th>
-                    <td>{{refresh_rate}}</td>
-                </tr>
-            </table>
-            {{/with}}
-            <br>
-
-            {{> title data="Ports:"}}
-            {{#each features.ports}}
-                <div><b>type:</b> {{type}}</div>
-                <div><b>count:</b> {{count}}</div>
-
-                {{#if features}}
-                <div>
-                    <b>features:</b>
-                    {{#each features}}
-                        {{this}}
-                    {{/each}}
-                </div>
-                {{/if}}
-                <br>
-            {{/each}}
-
-            {{> title data="Battery:"}}
-            {{#with features.battery}}
-            <table>
-                <tr>
-                    <th>type:</th>
-                    <td>{{type}}</td>
-                </tr>
-                <tr>
-                    <th>capacity:</th>
-                    <td>{{capacity}}</td>
-                </tr>
-                <tr>
-                    <th>life:</th>
-                    <td>{{life}}</td>
-                </tr>
-            </table>
-            {{/with}}
-            <br>                
-
-            {{> title data="Weight:"}}
-            <div><b>Weight:</b> {{features.weight}}</div>
-            <br>                
-
-            {{> title data="Dimensions:"}}
-            {{#with features.dimensions}}
-            <table>
-                <tr>
-                    <th>height:</th>
-                    <td>{{height}}</td>
-                </tr>
-                <tr>
-                    <th>width:</th>
-                    <td>{{width}}</td>
-                </tr>
-                <tr>
-                    <th>depth:</th>
-                    <td>{{depth}}</td>
-                </tr>
-            </table>
-            {{/with}}
-            <br>                
-
-            {{> title data="Operating system:"}}
-            <div><b>Operating system:</b> {{features.operating_system}}</div>
-            <br>                
-
-            {{> title data="Accessories:"}}
-            {{#each features.accessories}}
-                <div><b>name:</b> {{name}}</div>
-                <div><b>price:</b> {{price}}</div>
-                <br>
-            {{/each}}
-            <br>                
-
-        </section>
-    </main>
-</div>
-
-{{!-- 
-    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
-    Адже наш layout/default.hbs має вже структуру HTML
---}}
+    </section>
+</main>
